@@ -1,0 +1,14 @@
+/* 
+  InfoPlist.strings
+  HuaRongBlock
+
+  Created by liuwei on 14-12-23.
+
+*/
+"CFBundleDisplayName" = "华容道";
+"CFBundleName" = "华容道";
+"Thank you for your purchase!"="您已成功购买，感谢您的购买！";
+"Sorry, Purchase Failed!"="对不起，您的购买失败！";
+"Sorry, you have no transaction!"="对不起，您无可恢复内容！";
+"Restore successfully!"="恭喜您，您的购买已恢复成功！";
+"Restore failed!"="对不起，您的购买内容恢复失败！";

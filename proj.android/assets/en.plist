@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>welldone.png</key>
+	<string>en/welldone.png</string>
+	<key>next_step.png</key>
+	<string>en/next_step.png</string>
+	<key>btn_alert_no_normal.png</key>
+	<string>en/btn_alert_no_normal.png</string>
+	<key>game_btn_notice.png</key>
+	<string>en/game_btn_notice.png</string>
+	<key>game_title.png</key>
+	<string>en/game_title.png</string>
+	<key>navigation_center.png</key>
+	<string>en/navigation_center.png</string>
+	<key>youyitix.png</key>
+	<string>en/youyitix.png</string>
+	<key>经典</key>
+	<string>Classic </string>
+	<key>零横式</key>
+	<string>0 Across</string>
+	<key>一横式</key>
+	<string>1 Across</string>
+	<key>二横式</key>
+	<string>2 Across</string>
+	<key>三横式</key>
+	<string>3 Across</string>
+	<key>四横式</key>
+	<string>4 Across</string>
+	<key>五横式</key>
+	<string>5 Across</string>
+	<key>成就</key>
+	<string>Achievements</string>
+	<key>移除广告</key>
+	<string>Remove ADs</string>
+	<key>排行榜</key>
+	<string>Ranking</string>
+	<key>商店</key>
+	<string>Shop</string>
+	<key>每日登录奖励：</key>
+	<string>Everday Award Entry:</string>
+	<key>今日可领取钻石</key>
+	<string>Today Award</string>
+	<key>今日奖励已领取</key>
+	<string>Today Awarded</string>
+	<key>提示</key>
+	<string>Tips</string>
+	<key>提示：</key>
+	<string>Tips:</string>
+	<key>收集</key>
+	<string>Collect </string>
+	<key>个</key>
+	<string> s</string>
+	<key>成就奖励：</key>
+	<string>Reward for Achievements:</string>
+	<key>对不起，你当前的成就值没有达到领取要求</key>
+	<string>Sorry, Your achievements value didn’t reach required standard.</string>
+	<key>花费1个钻石获取提示？</key>
+	<string>Spend one Jewels to get tips?</string>
+	<key>是否重新开始游戏？</key>
+	<string>Do you want to start over?</string>
+	<key>排名</key>
+	<string>Ranking</string>
+	<key>共</key>
+	<string>all </string>
+	<key>位玩家</key>
+	<string> players total</string>
+	<key>完成关卡</key>
+	<string>P-L</string>
+	<key>英雄</key>
+	<string>Hero</string>
+	<key>钻石不足，您可以到商店购买</key>
+	<string>You dont have Jewels, Please buy from shop.</string>
+	<key>钻石不足，您观看视频获取钻石</key>
+	<string>Sorry,you dont have jewels! Would you please get it by watching vedios.</string>
+	<key>名次</key>
+	<string>R</string>
+	<key>是否退出游戏？</key>
+	<string>Do you want to exit the game?</string>
+	<key>数据加载失败,请重试!</key>
+	<string>Load Data Failed!</string>
+	<key>加载数据......</key>
+	<string>Loading......</string>
+	<key>暂时没有数据!</key>
+	<string>No Datas!</string>
+	<key>获取钻石</key>
+	<string>Reward Diamonds</string>
+	<key>看视频赠送钻石</key>
+	<string>Reward Diamonds by Watching Videos</string>
+	<key>今日剩余观看次数：</key>
+	<string>Today Available Videos: </string>
+	<key>观看视频</key>
+	<string>Watch Video</string>
+	<key>警告</key>
+	<string>Warning</string>
+	<key>领取钻石</key>
+	<string>Receive Diamonds</string>
+	<key>今日无可观看视频</key>
+	<string>No Available Videos</string>
+	<key>视频广告加载失败，请检查网络，重新加载！</key>
+	<string>Failed to load the vedio,please check out your network!</string>
+	<key>恢复购买</key>
+	<string>Purchase Restore</string>
+</dict>
+</plist>

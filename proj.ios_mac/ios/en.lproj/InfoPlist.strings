@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  HuaRongBlock
+
+  Created by liuwei on 14-12-23.
+
+*/
+"CFBundleDisplayName" = "Klotski";
+"CFBundleName" = "Klotski";
