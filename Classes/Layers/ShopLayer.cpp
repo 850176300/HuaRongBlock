@@ -154,7 +154,7 @@ void ShopLayer::addShopItems(){
 void ShopLayer::onShopItemClicked(cocos2d::Ref *pRef) {
     SoundPlayer::getInstance()->playclickeffect();
     Node* pNode = dynamic_cast<Node*>(pRef);
-    iap->purchase(iapkeys.at(pNode->getTag()).c_str());
+//    iap->purchase(iapkeys.at(pNode->getTag()).c_str());
 //    this->purchaseSuccess(iapkeys.at(pNode->getTag()).c_str());
 }
 
@@ -167,7 +167,7 @@ void ShopLayer::backButtonClicked(cocos2d::Ref *pRef, Control::EventType type) {
 
 
 void ShopLayer::onRestoreItemClicked(cocos2d::Ref *pref) {
-    iap->restore();
+//    iap->restore();
 }
 
 void ShopLayer::purchaseSuccess(const char *pid) {
@@ -180,8 +180,8 @@ void ShopLayer::purchaseSuccess(const char *pid) {
     }
     if (count == 3) {
         UserDefaultManager::setIsRemoved(true);
-        KKAds ads;
-        ads.removeAds();
+//        KKAds ads;
+//        ads.removeAds();
         return;
     }
     if (!UserDefaultManager::getIsFirstBuy()) {
@@ -207,8 +207,8 @@ void ShopLayer::purchaseSuccess(const char *pid) {
 void ShopLayer::restoreSuccess(const char *pid) {
     if (iapkeys.at(3).compare(pid) == 0) {
         UserDefaultManager::setIsRemoved(true);
-        KKAds ads;
-        ads.removeAds();
+//        KKAds ads;
+//        ads.removeAds();
     }
 }
 

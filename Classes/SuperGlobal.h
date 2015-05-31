@@ -13,7 +13,7 @@
 #include <vector>
 #include "cocos2d.h"
 #include "SoundPlayer.h"
-#include "KKAds.h"
+//#include "KKAds.h"
 USING_NS_CC;
 using namespace std;
 
@@ -57,9 +57,9 @@ inline void setBannerVisible(bool visible);
 inline void setBannerVisible(bool visible)
 {
     
-    KKAds* ad = new KKAds();
-    ad->setAdsVisibility(visible);
-    delete ad;
+//    KKAds* ad = new KKAds();
+//    ad->setAdsVisibility(visible);
+//    delete ad;
 };
 
 inline string convertIntToString(int num);
@@ -150,6 +150,7 @@ public:
 #define ButtonDesperate 20
 #define DataWidth 4
 #define DataHeight 5
+#define DayTime "isGameisDay"
 #define konVideoIntertitialLoadFailed "onVideoIntertitialLoadFailed"
 #define konVideoIntertitialClose "onVideoIntertitialClose"
 #endif /* defined(__HuaRongStreet__SuperGlobal__) */

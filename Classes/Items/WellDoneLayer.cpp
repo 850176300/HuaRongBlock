@@ -9,7 +9,7 @@
 #include "WellDoneLayer.h"
 #include "STVisibleRect.h"
 #include "CocosHelper.h"
-#include "KKAds.h"
+//#include "KKAds.h"
 #include "UserDefaultManager.h"
 #include "SoundPlayer.h"
 #include "SuperGlobal.h"
@@ -95,8 +95,8 @@ bool WellDoneLayer::initWithStar(float star) {
 
 void WellDoneLayer::showInNode(cocos2d::Node *parent) {
     if (!UserDefaultManager::getIsRemoved()) {
-        KKAds ads;
-        ads.requestInterstitialAds();
+//        KKAds ads;
+//        ads.requestInterstitialAds();
     }
     ignoreAnchorPointForPosition(false);
     setAnchorPoint(Vec2(0.5f, 0.5f));

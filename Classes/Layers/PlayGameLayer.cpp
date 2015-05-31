@@ -14,9 +14,9 @@
 #include "DBManager.h"
 #include "ProductSolution.h"
 #include "UserDefaultManager.h"
-#include "KKLeaderboardAPI.h"
-#include "KKShare.h"
-#include "KKSystemFunction.h"
+//#include "KKLeaderboardAPI.h"
+//#include "KKShare.h"
+//#include "KKSystemFunction.h"
 #include "GameTipLayer.h"
 
 #define TipDiamondCount 1
@@ -284,22 +284,22 @@ void PlayGameLayer::onFinishedTheGame(){
     }
     
     _currentDescripe->updateToSplite();
-
-    KKLeaderboardAPI* api = new KKLeaderboardAPI();
-    KKPlayer* player = new KKPlayer();
-    KKScore* score = new KKScore();
-
-    
-    player->setName(KKSystemFunction::getDeviceName());
-    player->setUDID(KKShare::getUDID());
-    score->setScore(UserDefaultManager::getStarsCount()*1000+UserDefaultManager::getQuestionCount());
-    api->uploadScoreToLeaderboard(6, player, score);
+//
+//    KKLeaderboardAPI* api = new KKLeaderboardAPI();
+//    KKPlayer* player = new KKPlayer();
+//    KKScore* score = new KKScore();
+//
+//    
+//    player->setName(KKSystemFunction::getDeviceName());
+//    player->setUDID(KKShare::getUDID());
+//    score->setScore(UserDefaultManager::getStarsCount()*1000+UserDefaultManager::getQuestionCount());
+//    api->uploadScoreToLeaderboard(6, player, score);
     if (UserDefaultManager::getQuestionCount() >= UserDefaultManager::getNumofQuestion()) {
         
     }
-    api->autorelease();
-    player->autorelease();
-    score->autorelease();
+//    api->autorelease();
+//    player->autorelease();
+//    score->autorelease();
    
 }
 

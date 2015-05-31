@@ -3,9 +3,9 @@
 #include "SceneManager.h"
 #include "DBManager.h"
 #include "UserDefaultManager.h"
-#include "KKAds.h"
+//#include "KKAds.h"
 #include "DatabaseHelper.h"
-#include "KKVedioAdsAdapter.h"
+//#include "KKVedioAdsAdapter.h"
 USING_NS_ST;
 USING_NS_CC;
 
@@ -43,19 +43,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // create a scene. it's an autorelease object
       SceneManager::getInstance()->gotoloading();
     if ( UserDefaultManager::getIsRemoved() == false ) {
-        KKAds* ad = new KKAds();
-        ad->preloadAds();
-        ad->requestAds();
-        
-//        ad->requestInterstitialAds();
-        delete ad;
+        //showad
     }
     
 //#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 //    KKOfferWallAdapter::setOfferWallDelegate(this);
 //#endif
 //#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    KKVedioAdsAdapter::getInstance()->setAdsDelegate(this);
 //#endif
     return true;
 }
@@ -72,9 +66,9 @@ void AppDelegate::applicationDidEnterBackground() {
 void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
     if ( !UserDefaultManager::getIsRemoved() ) {
-        KKAds* ad = new KKAds();
-        ad->requestInterstitialAds();
-        delete ad;
+//        KKAds* ad = new KKAds();
+//        ad->requestInterstitialAds();
+//        delete ad;
     }
 //#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 //    

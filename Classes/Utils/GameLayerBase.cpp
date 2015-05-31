@@ -9,7 +9,7 @@
 #include "GameLayerBase.h"
 #include "CocosHelper.h"
 //#include "DeviceTool.h"
-#include "KKAds.h"
+//#include "KKAds.h"
 #include "UserDefaultManager.h"
 
 
@@ -74,13 +74,13 @@ void GameLayerBase::setShowAds(bool isShow) {
 void GameLayerBase::onEnter(){
     KeyEventDispatcher::getInstance()->addEventDelegate(this);
     Layer::onEnter();
-    if (isShowAds && !UserDefaultManager::getIsRemoved()) {
-        KKAds ads;
-        ads.setAdsVisibility(true);
-    }else{
-        KKAds ads;
-        ads.setAdsVisibility(false);
-    }
+//    if (isShowAds && !UserDefaultManager::getIsRemoved()) {
+//        KKAds ads;
+//        ads.setAdsVisibility(true);
+//    }else{
+//        KKAds ads;
+//        ads.setAdsVisibility(false);
+//    }
 
 }
 

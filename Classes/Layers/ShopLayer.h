@@ -13,16 +13,16 @@
 #include "cocos2d.h"
 #include "GameLayerBase.h"
 #include "extensions/cocos-ext.h"
-#include "KKInAppBilling.h"
-#include "KKIAPDelegate.h"
+//#include "KKInAppBilling.h"
+//#include "KKIAPDelegate.h"
 using namespace std;
 USING_NS_CC;
 USING_NS_CC_EXT;
 
-class ShopLayer : public GameLayerBase, public KKIAPDelegate{
+class ShopLayer : public GameLayerBase/*public KKIAPDelegate*/{
 public:
-    ShopLayer():iap(NULL){ iap = new KKInAppBilling(); iap->setIAPDelegate(this);};
-    ~ShopLayer(){CC_SAFE_DELETE(iap);};
+//    ShopLayer():iap(NULL){ iap = new KKInAppBilling(); iap->setIAPDelegate(this);};
+//    ~ShopLayer(){CC_SAFE_DELETE(iap);};
     static Scene* scene();
     virtual bool init();
     CREATE_FUNC(ShopLayer);
@@ -39,7 +39,7 @@ private:
     virtual void purchaseFailure(const char* pid, int errorCode);
     virtual void restoreSuccess(const char* pid);
     virtual void restoreFailure(const char* pid, int errorCode);
-    KKInAppBilling* iap;
+//    KKInAppBilling* iap;
     Sprite* coin;
     Label* coinNum;
     vector<float> allShopItemY;

@@ -31,8 +31,8 @@ bool LoadingLayer::init(){
 }
 
 void LoadingLayer::onEnterTransitionDidFinish(){
-    KKAds ads;
-    ads.setAdsVisibility(false);
+//    KKAds ads;
+//    ads.setAdsVisibility(false);
     LayerColor::onEnterTransitionDidFinish();
     runAnimation();
     scheduleOnce(schedule_selector(LoadingLayer::updateToMainScene), 2.5f);

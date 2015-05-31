@@ -12,7 +12,7 @@
 #include "PlayGameLayer.h"
 #include "ShopLayer.h"
 #include "LoadingLayer.h"
-#include "ShopLayer_Android.h"
+
 SceneManager::SceneManager(){
     
 }
@@ -59,15 +59,15 @@ void SceneManager::gotoShopLayer(){
     Scene* pScene = ShopLayer::scene();
     Director::getInstance()->pushScene(pScene);
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    CCLog("进入积分榜界面======================");
-//    KKOfferWallAdapter::showOfferWall();
-    Scene* pScene = ShopLayer_Android::scene();
-    Director::getInstance()->pushScene(pScene);
+//    CCLog("进入积分榜界面======================");
+////    KKOfferWallAdapter::showOfferWall();
+//    Scene* pScene = ShopLayer_Android::scene();
+//    Director::getInstance()->pushScene(pScene);
 #endif
 }
 
 void SceneManager::gotoVedioLayer()
 {
-    Scene* pScene = ShopLayer_Android::scene();
-    Director::getInstance()->pushScene(pScene);
+//    Scene* pScene = ShopLayer_Android::scene();
+//    Director::getInstance()->pushScene(pScene);
 }
