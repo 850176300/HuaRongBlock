@@ -382,8 +382,9 @@ Vec2 ScrollView::maxContainerOffset()
 
 Vec2 ScrollView::minContainerOffset()
 {
-    return Vec2(_viewSize.width - _container->getContentSize().width*_container->getScaleX(), 
+    Vec2 offset = Vec2(_viewSize.width - _container->getContentSize().width*_container->getScaleX(),
                _viewSize.height - _container->getContentSize().height*_container->getScaleY());
+    return offset;
 }
 
 void ScrollView::deaccelerateScrolling(float dt)

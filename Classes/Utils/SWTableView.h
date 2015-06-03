@@ -23,23 +23,23 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __CCTABLEVIEW_H__
-#define __CCTABLEVIEW_H__
-
-#include "CCScrollView.h"
-#include "CCTableViewCell.h"
+#ifndef __SWTABLEVIEW_H__
+#define __SWTABLEVIEW_H__
 
 #include <set>
 #include <vector>
+#include "cocos2d.h"
+#include "cocos-ext.h"
+using namespace cocos2d;
+USING_NS_CC_EXT;
 
-NS_CC_EXT_BEGIN
 
-class TableView;
+class SWTableView;
 
 /**
  * Sole purpose of this delegate is to single touch event in this version.
  */
-class TableViewDelegate : public ScrollViewDelegate
+class SWTableViewDelegate : public ScrollViewDelegate
 {
 public:
     /**
@@ -50,7 +50,7 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void tableCellTouched(TableView* table, TableViewCell* cell) = 0;
+    virtual void tableCellTouched(SWTableView* table, TableViewCell* cell, Touch* pTouch) = 0;
 
     /**
      * Delegate to respond a table cell press event.
@@ -60,7 +60,7 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void tableCellHighlight(TableView* table, TableViewCell* cell){};
+    virtual void tableCellHighlight(SWTableView* table, TableViewCell* cell){};
 
     /**
      * Delegate to respond a table cell release event
@@ -70,7 +70,7 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void tableCellUnhighlight(TableView* table, TableViewCell* cell){};
+    virtual void tableCellUnhighlight(SWTableView* table, TableViewCell* cell){};
 
     /**
      * Delegate called when the cell is about to be recycled. Immediately
@@ -82,7 +82,7 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void tableCellWillRecycle(TableView* table, TableViewCell* cell){};
+    virtual void tableCellWillRecycle(SWTableView* table, TableViewCell* cell){};
 
 };
 
@@ -90,14 +90,14 @@ public:
 /**
  * Data source that governs table backend data.
  */
-class TableViewDataSource
+class SWTableViewDataSource
 {
 public:
     /**
      * @js NA
      * @lua NA
      */
-    virtual ~TableViewDataSource() {}
+    virtual ~SWTableViewDataSource() {}
 
     /**
      * cell size for a given index
@@ -105,7 +105,7 @@ public:
      * @param idx the index of a cell to get a size
      * @return size of a cell at given index
      */
-    virtual Size tableCellSizeForIndex(TableView *table, ssize_t idx) {
+    virtual Size tableCellSizeForIndex(SWTableView *table, ssize_t idx) {
         return cellSizeForTable(table);
     };
     /**
@@ -114,7 +114,7 @@ public:
      * @param table table to hold the instances of Class
      * @return cell size
      */
-    virtual Size cellSizeForTable(TableView *table) {
+    virtual Size cellSizeForTable(SWTableView *table) {
         return Size::ZERO;
     };
     /**
@@ -123,13 +123,13 @@ public:
      * @param idx index to search for a cell
      * @return cell found at idx
      */
-    virtual TableViewCell* tableCellAtIndex(TableView *table, ssize_t idx) = 0;
+    virtual TableViewCell* tableCellAtIndex(SWTableView *table, ssize_t idx) = 0;
     /**
      * Returns number of cells in a given table view.
      *
      * @return number of cells
      */
-    virtual ssize_t numberOfCellsInTableView(TableView *table) = 0;
+    virtual ssize_t numberOfCellsInTableView(SWTableView *table) = 0;
 
 };
 
@@ -139,7 +139,7 @@ public:
  *
  * This is a very basic, minimal implementation to bring UITableView-like component into cocos2d world.
  */
-class TableView : public ScrollView, public ScrollViewDelegate
+class SWTableView : public ScrollView, public ScrollViewDelegate
 {
 public:
     
@@ -150,7 +150,7 @@ public:
     };
     
     /** Empty contructor of TableView */
-    static TableView* create();
+    static SWTableView* create();
     
     /**
      * An intialized table view object
@@ -165,7 +165,7 @@ public:
      * in lua:
      * @endcode
      */
-    static TableView* create(TableViewDataSource* dataSource, Size size);
+    static SWTableView* create(SWTableViewDataSource* dataSource, Size size);
     /**
      * An initialized table view object
      *
@@ -180,16 +180,16 @@ public:
      * in lua:
      * @endcode
      */
-    static TableView* create(TableViewDataSource* dataSource, Size size, Node *container);
+    static SWTableView* create(SWTableViewDataSource* dataSource, Size size, Node *container);
     /**
      * @js ctor
      */
-    TableView();
+    SWTableView();
     /**
      * @js NA
      * @lua NA
      */
-    virtual ~TableView();
+    virtual ~SWTableView();
 
     bool initWithViewSize(Size size, Node* container = NULL);
 
@@ -198,20 +198,20 @@ public:
      * @js NA
      * @lua NA
      */
-    TableViewDataSource* getDataSource() { return _dataSource; }
+    SWTableViewDataSource* getDataSource() { return _dataSource; }
     /**
      * when this function bound to js or lua,the input params are changed
      * in js:var setDataSource(var jsSource)
      * in lua:local setDataSource()
      * @endcode
      */
-    void setDataSource(TableViewDataSource* source) { _dataSource = source; }
+    void setDataSource(SWTableViewDataSource* source) { _dataSource = source; }
     /**
      * delegate
      * @js NA
      * @lua NA
      */
-    TableViewDelegate* getDelegate() { return _tableViewDelegate; }
+    SWTableViewDelegate* getDelegate() { return _tableViewDelegate; }
     /**
      * @code
      * when this function bound to js or lua,the input params are changed
@@ -219,7 +219,7 @@ public:
      * in lua:local setDelegate()
      * @endcode
      */
-    void setDelegate(TableViewDelegate* pDelegate) { _tableViewDelegate = pDelegate; }
+    void setDelegate(SWTableViewDelegate* pDelegate) { _tableViewDelegate = pDelegate; }
 
     /**
      * determines how cell is ordered and filled in the view.
@@ -312,22 +312,20 @@ protected:
     /**
      * weak link to the data source object
      */
-    TableViewDataSource* _dataSource;
+    SWTableViewDataSource* _dataSource;
     /**
      * weak link to the delegate object
      */
-    TableViewDelegate* _tableViewDelegate;
+    SWTableViewDelegate* _tableViewDelegate;
 
     Direction _oldDirection;
 
     bool _isUsedCellsDirty;
 
 public:
-    void _updateContentSize();
+    virtual void _updateContentSize();
 
 };
 
 
-NS_CC_EXT_END
-
-#endif /* __CCTABLEVIEW_H__ */
+#endif /* __SWTABLEVIEW_H__ */

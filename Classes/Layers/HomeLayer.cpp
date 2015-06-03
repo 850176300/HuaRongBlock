@@ -9,6 +9,7 @@
 #include "HomeLayer.h"
 #include "SuperGlobal.h"
 #include "STVisibleRect.h"
+#include "TableViewTest.h"
 USING_NS_ST;
 Scene* HomeLayer::scene(){
     Scene* pScene = Scene::create();
@@ -33,7 +34,8 @@ bool HomeLayer::init(){
         addChild(centerTitle, 1);
         
         
-        
+        TableViewTest* pLayer = TableViewTest::create();
+        this->addChild(pLayer, 2);
         
         return true;
     }

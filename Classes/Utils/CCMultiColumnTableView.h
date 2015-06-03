@@ -24,13 +24,11 @@
 
 #ifndef __CCMULTITABLEVIEWCELL_H__
 #define __CCMULTITABLEVIEWCELL_H__
-#include "extensions/cocos-ext.h"
+
+#include <iostream>
 #include "cocos2d.h"
-//#include "CCTableView.h"
-
+#include "SWTableView.h"
 USING_NS_CC;
-USING_NS_CC_EXT;
-
 /**
  * It adds multiple column support to CCTableView.
  * Use CCScrollViewDirectionBoth to set custom column count, colCount.
@@ -38,10 +36,10 @@ USING_NS_CC_EXT;
  * computing from viewSize and cellSize.
  */
 
-class DRMultiColumnTableView : public TableView
+class CCMultiColumnTableView : public SWTableView
 {
 public:
-    DRMultiColumnTableView();
+    CCMultiColumnTableView();
        
     /**
      * An intialized table view object
@@ -50,7 +48,7 @@ public:
      * @param size view size
      * @return table view
      */
-    static DRMultiColumnTableView* create(TableViewDataSource* dataSource, Size size);
+    static CCMultiColumnTableView* create(SWTableViewDataSource* dataSource, Size size);
     /**
      * An initialized table view object
      *
@@ -59,7 +57,7 @@ public:
      * @param container parent object for cells
      * @return table view
      */
-    static DRMultiColumnTableView* create(TableViewDataSource* dataSource, Size size, Node *container);
+    static CCMultiColumnTableView* create(SWTableViewDataSource* dataSource, Size size, Node *container);
 
     /**
      * the maximum number of columns.
@@ -67,15 +65,15 @@ public:
     unsigned int m_colCount;
     
     void setColCount(unsigned int cols);
+public:
+     virtual void _updateContentSize();
+protected:
     
-    private:
-    
-    virtual int indexFromOffset(Point offset);
+    virtual long indexFromOffset(Point offset);
     virtual Point offsetFromIndex(unsigned int index);
-    virtual void updateContentSize();
+   
     
 
 };
-
 
 #endif /* __CCMULTITABLEVIEWCELL_H__ */

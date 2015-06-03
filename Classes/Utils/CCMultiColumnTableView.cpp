@@ -21,40 +21,37 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-#include "cocos2d.h"
-#include "DRMultiColumnTableView.h"
+#include "CCMultiColumnTableView.h"
 
+CCMultiColumnTableView* CCMultiColumnTableView::create(SWTableViewDataSource* dataSource, Size size){
 
-DRMultiColumnTableView* DRMultiColumnTableView::create(TableViewDataSource* dataSource, Size size){
-
- return DRMultiColumnTableView::create(dataSource, size, NULL);
+ return CCMultiColumnTableView::create(dataSource, size, NULL);
   
 }
 
-DRMultiColumnTableView* DRMultiColumnTableView::create(TableViewDataSource* dataSource, Size size, Node *container)
+CCMultiColumnTableView* CCMultiColumnTableView::create(SWTableViewDataSource* dataSource, Size size, Node *container)
 {
-    DRMultiColumnTableView *table = new DRMultiColumnTableView();
+    CCMultiColumnTableView *table = new CCMultiColumnTableView();
     table->initWithViewSize(size, container);
     table->autorelease();
     table->setDataSource(dataSource);
-    table->updateContentSize();
     
     return table;
 }
 
-DRMultiColumnTableView::DRMultiColumnTableView():m_colCount(1) {
+CCMultiColumnTableView::CCMultiColumnTableView():m_colCount(1) {
 
 }
 
-void DRMultiColumnTableView::setColCount(unsigned int cols){
+void CCMultiColumnTableView::setColCount(unsigned int cols){
     m_colCount = cols;
     
     if (this->getDirection() == ScrollView::Direction::BOTH) {
-        this->updateContentSize();
+        this->_updateContentSize();
     }
 }
 
-int DRMultiColumnTableView::indexFromOffset(Point offset){
+long CCMultiColumnTableView::indexFromOffset(Point offset){
    
     int  index = 0;
     Size  cellSize;
@@ -80,7 +77,7 @@ int DRMultiColumnTableView::indexFromOffset(Point offset){
     
 }
 
-Point DRMultiColumnTableView::offsetFromIndex(unsigned int index){
+Point CCMultiColumnTableView::offsetFromIndex(unsigned int index){
   
     Point offset;
     Size  cellSize;
@@ -109,7 +106,7 @@ Point DRMultiColumnTableView::offsetFromIndex(unsigned int index){
     
 }
 
-void DRMultiColumnTableView::updateContentSize(){
+void CCMultiColumnTableView::_updateContentSize(){
    
     Size     size, cellSize, viewSize;
     unsigned int cellCount, rows;
@@ -151,4 +148,3 @@ void DRMultiColumnTableView::updateContentSize(){
     
     
 }
-

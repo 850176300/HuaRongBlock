@@ -23,24 +23,22 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "CCTableView.h"
-#include "CCTableViewCell.h"
+#include "SWTableView.h"
 
-NS_CC_EXT_BEGIN
 
-TableView* TableView::create()
+SWTableView* SWTableView::create()
 {
-    return TableView::create(nullptr, Size::ZERO);
+    return SWTableView::create(nullptr, Size::ZERO);
 }
 
-TableView* TableView::create(TableViewDataSource* dataSource, Size size)
+SWTableView* SWTableView::create(SWTableViewDataSource* dataSource, Size size)
 {
-    return TableView::create(dataSource, size, nullptr);
+    return SWTableView::create(dataSource, size, nullptr);
 }
 
-TableView* TableView::create(TableViewDataSource* dataSource, Size size, Node *container)
+SWTableView* SWTableView::create(SWTableViewDataSource* dataSource, Size size, Node *container)
 {
-    TableView *table = new TableView();
+    SWTableView *table = new SWTableView();
     table->initWithViewSize(size, container);
     table->autorelease();
     table->setDataSource(dataSource);
@@ -50,7 +48,7 @@ TableView* TableView::create(TableViewDataSource* dataSource, Size size, Node *c
     return table;
 }
 
-bool TableView::initWithViewSize(Size size, Node* container/* = nullptr*/)
+bool SWTableView::initWithViewSize(Size size, Node* container/* = nullptr*/)
 {
     if (ScrollView::initWithViewSize(size,container))
     {
@@ -65,7 +63,7 @@ bool TableView::initWithViewSize(Size size, Node* container/* = nullptr*/)
     return false;
 }
 
-TableView::TableView()
+SWTableView::SWTableView()
 : _touchedCell(nullptr)
 , _indices(nullptr)
 , _dataSource(nullptr)
@@ -76,12 +74,12 @@ TableView::TableView()
 
 }
 
-TableView::~TableView()
+SWTableView::~SWTableView()
 {
     CC_SAFE_DELETE(_indices);
 }
 
-void TableView::setVerticalFillOrder(VerticalFillOrder fillOrder)
+void SWTableView::setVerticalFillOrder(VerticalFillOrder fillOrder)
 {
     if (_vordering != fillOrder)
     {
@@ -93,12 +91,12 @@ void TableView::setVerticalFillOrder(VerticalFillOrder fillOrder)
     }
 }
 
-TableView::VerticalFillOrder TableView::getVerticalFillOrder()
+SWTableView::VerticalFillOrder SWTableView::getVerticalFillOrder()
 {
     return _vordering;
 }
 
-void TableView::reloadData()
+void SWTableView::reloadData()
 {
     _oldDirection = Direction::NONE;
 
@@ -127,7 +125,7 @@ void TableView::reloadData()
     }
 }
 
-TableViewCell *TableView::cellAtIndex(ssize_t idx)
+TableViewCell *SWTableView::cellAtIndex(ssize_t idx)
 {
     if (_indices->find(idx) != _indices->end())
     {
@@ -143,7 +141,7 @@ TableViewCell *TableView::cellAtIndex(ssize_t idx)
     return nullptr;
 }
 
-void TableView::updateCellAtIndex(ssize_t idx)
+void SWTableView::updateCellAtIndex(ssize_t idx)
 {
     if (idx == CC_INVALID_INDEX)
     {
@@ -165,7 +163,7 @@ void TableView::updateCellAtIndex(ssize_t idx)
     this->_addCellIfNecessary(cell);
 }
 
-void TableView::insertCellAtIndex(ssize_t idx)
+void SWTableView::insertCellAtIndex(ssize_t idx)
 {
     if (idx == CC_INVALID_INDEX)
     {
@@ -201,7 +199,7 @@ void TableView::insertCellAtIndex(ssize_t idx)
     this->_updateContentSize();
 }
 
-void TableView::removeCellAtIndex(ssize_t idx)
+void SWTableView::removeCellAtIndex(ssize_t idx)
 {
     if (idx == CC_INVALID_INDEX)
     {
@@ -237,7 +235,7 @@ void TableView::removeCellAtIndex(ssize_t idx)
     }
 }
 
-TableViewCell *TableView::dequeueCell()
+TableViewCell *SWTableView::dequeueCell()
 {
     TableViewCell *cell;
 
@@ -252,7 +250,7 @@ TableViewCell *TableView::dequeueCell()
     return cell;
 }
 
-void TableView::_addCellIfNecessary(TableViewCell * cell)
+void SWTableView::_addCellIfNecessary(TableViewCell * cell)
 {
     if (cell->getParent() != this->getContainer())
     {
@@ -263,7 +261,7 @@ void TableView::_addCellIfNecessary(TableViewCell * cell)
     _isUsedCellsDirty = true;
 }
 
-void TableView::_updateContentSize()
+void SWTableView::_updateContentSize()
 {
     Size size = Size::ZERO;
     ssize_t cellsCount = _dataSource->numberOfCellsInTableView(this);
@@ -300,7 +298,7 @@ void TableView::_updateContentSize()
 
 }
 
-Vec2 TableView::_offsetFromIndex(ssize_t index)
+Vec2 SWTableView::_offsetFromIndex(ssize_t index)
 {
     Vec2 offset = this->offsetFromIndex(index);
 
@@ -312,7 +310,7 @@ Vec2 TableView::_offsetFromIndex(ssize_t index)
     return offset;
 }
 
-Vec2 TableView::offsetFromIndex(ssize_t index)
+Vec2 SWTableView::offsetFromIndex(ssize_t index)
 {
     Vec2 offset;
     Size  cellSize;
@@ -330,7 +328,7 @@ Vec2 TableView::offsetFromIndex(ssize_t index)
     return offset;
 }
 
-long TableView::_indexFromOffset(Vec2 offset)
+long SWTableView::_indexFromOffset(Vec2 offset)
 {
     long index = 0;
     const long maxIdx = _dataSource->numberOfCellsInTableView(this) - 1;
@@ -352,7 +350,7 @@ long TableView::_indexFromOffset(Vec2 offset)
     return index;
 }
 
-long TableView::indexFromOffset(Vec2 offset)
+long SWTableView::indexFromOffset(Vec2 offset)
 {
     long low = 0;
     long high = _dataSource->numberOfCellsInTableView(this) - 1;
@@ -394,7 +392,7 @@ long TableView::indexFromOffset(Vec2 offset)
     return -1;
 }
 
-void TableView::_moveCellOutOfSight(TableViewCell *cell)
+void SWTableView::_moveCellOutOfSight(TableViewCell *cell)
 {
     if(_tableViewDelegate != nullptr) {
         _tableViewDelegate->tableCellWillRecycle(this, cell);
@@ -413,14 +411,14 @@ void TableView::_moveCellOutOfSight(TableViewCell *cell)
     }
 }
 
-void TableView::_setIndexForCell(ssize_t index, TableViewCell *cell)
+void SWTableView::_setIndexForCell(ssize_t index, TableViewCell *cell)
 {
     cell->setAnchorPoint(Vec2(0.0f, 0.0f));
     cell->setPosition(this->_offsetFromIndex(index));
     cell->setIdx(index);
 }
 
-void TableView::_updateCellPositions()
+void SWTableView::_updateCellPositions()
 {
     long cellsCount = _dataSource->numberOfCellsInTableView(this);
     _vCellsPositions.resize(cellsCount + 1, 0.0);
@@ -448,7 +446,7 @@ void TableView::_updateCellPositions()
 
 }
 
-void TableView::scrollViewDidScroll(ScrollView* view)
+void SWTableView::scrollViewDidScroll(ScrollView* view)
 {
     long countOfItems = _dataSource->numberOfCellsInTableView(this);
     if (0 == countOfItems)
@@ -567,7 +565,7 @@ void TableView::scrollViewDidScroll(ScrollView* view)
     }
 }
 
-void TableView::onTouchEnded(Touch *pTouch, Event *pEvent)
+void SWTableView::onTouchEnded(Touch *pTouch, Event *pEvent)
 {
     if (!this->isVisible()) {
         return;
@@ -580,7 +578,7 @@ void TableView::onTouchEnded(Touch *pTouch, Event *pEvent)
 		if (bb.containsPoint(pTouch->getLocation()) && _tableViewDelegate != nullptr)
         {
             _tableViewDelegate->tableCellUnhighlight(this, _touchedCell);
-            _tableViewDelegate->tableCellTouched(this, _touchedCell);
+            _tableViewDelegate->tableCellTouched(this, _touchedCell, pTouch);
         }
 
         _touchedCell = nullptr;
@@ -589,7 +587,7 @@ void TableView::onTouchEnded(Touch *pTouch, Event *pEvent)
     ScrollView::onTouchEnded(pTouch, pEvent);
 }
 
-bool TableView::onTouchBegan(Touch *pTouch, Event *pEvent)
+bool SWTableView::onTouchBegan(Touch *pTouch, Event *pEvent)
 {
     if (!this->isVisible())
     {
@@ -633,7 +631,7 @@ bool TableView::onTouchBegan(Touch *pTouch, Event *pEvent)
     return touchResult;
 }
 
-void TableView::onTouchMoved(Touch *pTouch, Event *pEvent)
+void SWTableView::onTouchMoved(Touch *pTouch, Event *pEvent)
 {
     ScrollView::onTouchMoved(pTouch, pEvent);
 
@@ -648,7 +646,7 @@ void TableView::onTouchMoved(Touch *pTouch, Event *pEvent)
     }
 }
 
-void TableView::onTouchCancelled(Touch *pTouch, Event *pEvent)
+void SWTableView::onTouchCancelled(Touch *pTouch, Event *pEvent)
 {
     ScrollView::onTouchCancelled(pTouch, pEvent);
 
@@ -663,4 +661,3 @@ void TableView::onTouchCancelled(Touch *pTouch, Event *pEvent)
     }
 }
 
-NS_CC_EXT_END

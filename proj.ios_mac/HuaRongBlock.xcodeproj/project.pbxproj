@@ -12,7 +12,8 @@
 		012CCFC31A83604E00BC6601 /* Testlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012CCFC11A83604E00BC6601 /* Testlayer.cpp */; };
 		013C48631B1ADB0300EF193A /* HomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013C48611B1ADB0300EF193A /* HomeLayer.cpp */; };
 		013C48651B1ADD0F00EF193A /* modify in Resources */ = {isa = PBXBuildFile; fileRef = 013C48641B1ADD0F00EF193A /* modify */; };
-		013C48681B1AE46D00EF193A /* CCMultiColumnTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013C48661B1AE46D00EF193A /* CCMultiColumnTableView.cpp */; };
+		013EF83A1B1EEAF8005B83CF /* CCMultiColumnTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013EF8361B1EEAF8005B83CF /* CCMultiColumnTableView.cpp */; };
+		013EF84A1B1EF9B8005B83CF /* SWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013EF8491B1EF9B8005B83CF /* SWTableView.cpp */; };
 		0158BCBF1A3C257100DB9033 /* btn_alert_no_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0158BCBC1A3C257100DB9033 /* btn_alert_no_normal.png */; };
 		0158BCC01A3C257100DB9033 /* game_btn_notice.png in Resources */ = {isa = PBXBuildFile; fileRef = 0158BCBD1A3C257100DB9033 /* game_btn_notice.png */; };
 		0158BCC11A3C257100DB9033 /* tiptitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0158BCBE1A3C257100DB9033 /* tiptitle.png */; };
@@ -37,7 +38,6 @@
 		01AFA1D41A303A7F00F71C2C /* PlayGameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AFA1B21A303A7F00F71C2C /* PlayGameLayer.cpp */; };
 		01AFA1D51A303A7F00F71C2C /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AFA1B41A303A7F00F71C2C /* SceneManager.cpp */; };
 		01AFA1D61A303A7F00F71C2C /* CocosHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AFA1B81A303A7F00F71C2C /* CocosHelper.cpp */; };
-		01AFA1D71A303A7F00F71C2C /* DRMultiColumnTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AFA1BA1A303A7F00F71C2C /* DRMultiColumnTableView.cpp */; };
 		01AFA1D81A303A7F00F71C2C /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AFA1BC1A303A7F00F71C2C /* GameController.cpp */; };
 		01AFA1D91A303A7F00F71C2C /* GameLayerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AFA1BE1A303A7F00F71C2C /* GameLayerBase.cpp */; };
 		01AFA1DA1A303A7F00F71C2C /* MoveItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AFA1C01A303A7F00F71C2C /* MoveItem.cpp */; };
@@ -181,6 +181,7 @@
 		01CC0E291A3DE575005BA66E /* libcocos2dx-extensions-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CC0E241A3DE575005BA66E /* libcocos2dx-extensions-ios.a */; };
 		01CC0E2A1A3DE575005BA66E /* libcocos2dx-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CC0E251A3DE575005BA66E /* libcocos2dx-ios.a */; };
 		01CC0E2B1A3DE575005BA66E /* libCocosDenshion-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CC0E261A3DE575005BA66E /* libCocosDenshion-ios.a */; };
+		01DCC8F21B1EA29F0099AEAD /* TableViewTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DCC8F01B1EA29F0099AEAD /* TableViewTest.cpp */; };
 		01E8190D1A3FD69300CEEC7B /* DatabaseHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E8190C1A3FD69300CEEC7B /* DatabaseHelper.cpp */; };
 		01E819131A3FD87100CEEC7B /* CppSQLite3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E8190E1A3FD87100CEEC7B /* CppSQLite3.cpp */; };
 		01E819141A3FD87100CEEC7B /* DbConn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E819101A3FD87100CEEC7B /* DbConn.cpp */; };
@@ -312,8 +313,10 @@
 		013C48611B1ADB0300EF193A /* HomeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HomeLayer.cpp; sourceTree = "<group>"; };
 		013C48621B1ADB0300EF193A /* HomeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeLayer.h; sourceTree = "<group>"; };
 		013C48641B1ADD0F00EF193A /* modify */ = {isa = PBXFileReference; lastKnownFileType = folder; path = modify; sourceTree = "<group>"; };
-		013C48661B1AE46D00EF193A /* CCMultiColumnTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCMultiColumnTableView.cpp; sourceTree = "<group>"; };
-		013C48671B1AE46D00EF193A /* CCMultiColumnTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMultiColumnTableView.h; sourceTree = "<group>"; };
+		013EF8361B1EEAF8005B83CF /* CCMultiColumnTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCMultiColumnTableView.cpp; sourceTree = "<group>"; };
+		013EF8371B1EEAF8005B83CF /* CCMultiColumnTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMultiColumnTableView.h; sourceTree = "<group>"; };
+		013EF8481B1EF9B8005B83CF /* SWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableView.h; sourceTree = "<group>"; };
+		013EF8491B1EF9B8005B83CF /* SWTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SWTableView.cpp; sourceTree = "<group>"; };
 		0158BCBC1A3C257100DB9033 /* btn_alert_no_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_no_normal.png; sourceTree = "<group>"; };
 		0158BCBD1A3C257100DB9033 /* game_btn_notice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_btn_notice.png; sourceTree = "<group>"; };
 		0158BCBE1A3C257100DB9033 /* tiptitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiptitle.png; sourceTree = "<group>"; };
@@ -359,8 +362,6 @@
 		01AFA1B61A303A7F00F71C2C /* SuperGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperGlobal.h; path = ../Classes/SuperGlobal.h; sourceTree = "<group>"; };
 		01AFA1B81A303A7F00F71C2C /* CocosHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosHelper.cpp; sourceTree = "<group>"; };
 		01AFA1B91A303A7F00F71C2C /* CocosHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosHelper.h; sourceTree = "<group>"; };
-		01AFA1BA1A303A7F00F71C2C /* DRMultiColumnTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DRMultiColumnTableView.cpp; sourceTree = "<group>"; };
-		01AFA1BB1A303A7F00F71C2C /* DRMultiColumnTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMultiColumnTableView.h; sourceTree = "<group>"; };
 		01AFA1BC1A303A7F00F71C2C /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
 		01AFA1BD1A303A7F00F71C2C /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		01AFA1BE1A303A7F00F71C2C /* GameLayerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayerBase.cpp; sourceTree = "<group>"; };
@@ -543,6 +544,8 @@
 		01CC0E241A3DE575005BA66E /* libcocos2dx-extensions-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libcocos2dx-extensions-ios.a"; sourceTree = "<group>"; };
 		01CC0E251A3DE575005BA66E /* libcocos2dx-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libcocos2dx-ios.a"; sourceTree = "<group>"; };
 		01CC0E261A3DE575005BA66E /* libCocosDenshion-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCocosDenshion-ios.a"; sourceTree = "<group>"; };
+		01DCC8F01B1EA29F0099AEAD /* TableViewTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableViewTest.cpp; sourceTree = "<group>"; };
+		01DCC8F11B1EA29F0099AEAD /* TableViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewTest.h; sourceTree = "<group>"; };
 		01DF1D3A1A47D42200837D53 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		01E8190B1A3FD69300CEEC7B /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
 		01E8190C1A3FD69300CEEC7B /* DatabaseHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DatabaseHelper.cpp; sourceTree = "<group>"; };
@@ -724,6 +727,8 @@
 				012CCFC21A83604E00BC6601 /* Testlayer.h */,
 				013C48611B1ADB0300EF193A /* HomeLayer.cpp */,
 				013C48621B1ADB0300EF193A /* HomeLayer.h */,
+				01DCC8F01B1EA29F0099AEAD /* TableViewTest.cpp */,
+				01DCC8F11B1EA29F0099AEAD /* TableViewTest.h */,
 			);
 			name = Layers;
 			path = ../Classes/Layers;
@@ -732,13 +737,15 @@
 		01AFA1B71A303A7F00F71C2C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				013EF8481B1EF9B8005B83CF /* SWTableView.h */,
+				013EF8491B1EF9B8005B83CF /* SWTableView.cpp */,
+				013EF8361B1EEAF8005B83CF /* CCMultiColumnTableView.cpp */,
+				013EF8371B1EEAF8005B83CF /* CCMultiColumnTableView.h */,
 				01E8190B1A3FD69300CEEC7B /* DatabaseHelper.h */,
 				01E8190C1A3FD69300CEEC7B /* DatabaseHelper.cpp */,
 				01BDE6A11A3DBA6A00B75AD7 /* libjson */,
 				01AFA1B81A303A7F00F71C2C /* CocosHelper.cpp */,
 				01AFA1B91A303A7F00F71C2C /* CocosHelper.h */,
-				01AFA1BA1A303A7F00F71C2C /* DRMultiColumnTableView.cpp */,
-				01AFA1BB1A303A7F00F71C2C /* DRMultiColumnTableView.h */,
 				01AFA1BC1A303A7F00F71C2C /* GameController.cpp */,
 				01AFA1BD1A303A7F00F71C2C /* GameController.h */,
 				01AFA1BE1A303A7F00F71C2C /* GameLayerBase.cpp */,
@@ -941,8 +948,6 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				013C48661B1AE46D00EF193A /* CCMultiColumnTableView.cpp */,
-				013C48671B1AE46D00EF193A /* CCMultiColumnTableView.h */,
 				01AFA2DD1A30456600F71C2C /* Database */,
 				01AFA19C1A303A7F00F71C2C /* AppDelegate.cpp */,
 				01AFA19D1A303A7F00F71C2C /* AppDelegate.h */,
@@ -1451,7 +1456,6 @@
 				01AFA1DB1A303A7F00F71C2C /* ScrollMenu.cpp in Sources */,
 				01AFA1D31A303A7F00F71C2C /* LevelDetailLayer.cpp in Sources */,
 				01AFA1CD1A303A7F00F71C2C /* MoveField.cpp in Sources */,
-				013C48681B1AE46D00EF193A /* CCMultiColumnTableView.cpp in Sources */,
 				01108F501A480A540086D55E /* KeyEventDispatcher.cpp in Sources */,
 				01BDE6D11A3DBA6A00B75AD7 /* JSONAllocator.cpp in Sources */,
 				01AFA1DC1A303A7F00F71C2C /* SoundPlayer.cpp in Sources */,
@@ -1460,6 +1464,7 @@
 				015DB0C91A31499700DAF4AA /* ProductSolution.cpp in Sources */,
 				01BDE6D91A3DBA6A00B75AD7 /* JSONStream.cpp in Sources */,
 				01BDE6D01A3DBA6A00B75AD7 /* internalJSONNode.cpp in Sources */,
+				013EF83A1B1EEAF8005B83CF /* CCMultiColumnTableView.cpp in Sources */,
 				01AFA1DD1A303A7F00F71C2C /* STVisibleRect.cpp in Sources */,
 				01AFA1CE1A303A7F00F71C2C /* ScoreBoard.cpp in Sources */,
 				01AFA1D11A303A7F00F71C2C /* HeadNode.cpp in Sources */,
@@ -1478,7 +1483,6 @@
 				01AFA1D61A303A7F00F71C2C /* CocosHelper.cpp in Sources */,
 				01AFA1D41A303A7F00F71C2C /* PlayGameLayer.cpp in Sources */,
 				01AFA1D01A303A7F00F71C2C /* WellDoneLayer.cpp in Sources */,
-				01AFA1D71A303A7F00F71C2C /* DRMultiColumnTableView.cpp in Sources */,
 				01E819141A3FD87100CEEC7B /* DbConn.cpp in Sources */,
 				01AFA1CC1A303A7F00F71C2C /* LevelTitleNode.cpp in Sources */,
 				01BDE6D51A3DBA6A00B75AD7 /* JSONMemory.cpp in Sources */,
@@ -1494,6 +1498,8 @@
 				01AFA1D91A303A7F00F71C2C /* GameLayerBase.cpp in Sources */,
 				01AFA1D51A303A7F00F71C2C /* SceneManager.cpp in Sources */,
 				01BDE6D21A3DBA6A00B75AD7 /* JSONChildren.cpp in Sources */,
+				01DCC8F21B1EA29F0099AEAD /* TableViewTest.cpp in Sources */,
+				013EF84A1B1EF9B8005B83CF /* SWTableView.cpp in Sources */,
 				01AFA2E21A30456600F71C2C /* DBTool.cpp in Sources */,
 				01BDE6D61A3DBA6A00B75AD7 /* JSONNode.cpp in Sources */,
 			);
