@@ -16,10 +16,14 @@ using namespace std;
 USING_NS_CC;
 
 class HomeLayer : public GameLayerBase{
+    
 public:
     static Scene* scene();
     CREATE_FUNC(HomeLayer);
     virtual bool init();
+    
+private:
+    
 };
 
 #endif /* defined(__HuaRongBlock__HomeLayer__) */

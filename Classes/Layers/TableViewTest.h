@@ -11,10 +11,17 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "CCMultiColumnTableView.h"
+#include "SWTableView.h"
+#include "UserDefaultManager.h"
+#include "cocos-ext.h"
+using namespace std;
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 class TableViewTest : public LayerColor, public SWTableViewDataSource, public SWTableViewDelegate{
+    
+
+    
 public:
     virtual bool init();
     CREATE_FUNC(TableViewTest);
@@ -28,7 +35,10 @@ protected:
     virtual void tableCellTouched(SWTableView* table, TableViewCell* cell, Touch* pTouch);
 
 private:
-    SWTableView* pTableview;
+    vector<int> tableCounts;
+    vector<int> startIndex;
+    vector<string> tablecellpaths;
+    TablesTag currentSelectTable = kSimple;
 };
 
 

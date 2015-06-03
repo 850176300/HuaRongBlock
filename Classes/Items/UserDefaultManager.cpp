@@ -25,6 +25,9 @@
 #define kRecordeTime1 "kRecordeTime1"
 #define kViewState "viewState"
 #define kFirstTimeModify "FirstTimeModify"
+#define kSimpleFinishedCount "simplefinished"
+#define kMediumFinishedCount "mediumfinished"
+#define kDiffcultFinishedCount "difficultfinished"
 
 void UserDefaultManager::setDefault()
 {
@@ -181,4 +184,45 @@ bool UserDefaultManager::getFirstTimeModifySql(){
 
 void UserDefaultManager::setFirstTimeModifySql(){
     setBoolForKey(kFirstTimeModify, true);
+}
+
+int UserDefaultManager::getFinishedCount(TablesTag ktag) {
+    int count = 0;
+    if (ktag == kSimple) {
+        count = getIntegerForKey(kSimpleFinishedCount);
+    }else if (ktag == kMedium) {
+        count = getIntegerForKey(kMediumFinishedCount);
+    }else if (ktag == kDifficult){
+        count = getIntegerForKey(kDiffcultFinishedCount);
+    }
+    return count;
+
+}
+
+bool UserDefaultManager::addFinishedCount(TablesTag ktag) {
+    if (ktag == kSimple) {
+        int count = getIntegerForKey(kSimpleFinishedCount);
+        if (count + 1 > simpleCount) {
+            return false;
+        }
+        setIntegerForKey(kSimpleFinishedCount, count+1);
+        return true;
+    }else if (ktag == kMedium) {
+        int count = getIntegerForKey(kMediumFinishedCount);
+        if (count + 1 > mediumCount) {
+            return false;
+        }
+        setIntegerForKey(kMediumFinishedCount, count+1);
+        return true;
+    }else if (ktag == kDifficult){
+        int count = getIntegerForKey(kDiffcultFinishedCount);
+        if (count + 1 > difficultCount) {
+            return false;
+        }
+        setIntegerForKey(kDiffcultFinishedCount, count+1);
+        return true;
+    }else {
+        return false;
+    }
+    
 }

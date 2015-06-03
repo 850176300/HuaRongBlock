@@ -28,16 +28,20 @@ bool HomeLayer::init(){
         file = string("modify/night_bg.png");
     }
     if (GameLayerBase::initWithBgFileName(file.c_str())) {
+        
         Sprite* centerTitle = Sprite::create("modify/title.png");
         centerTitle->setAnchorPoint(Vec2(0.5, 1.0));
         centerTitle->setPosition(STVisibleRect::getCenterOfScene().x, STVisibleRect::getPointOfSceneLeftUp().y - 30);
         addChild(centerTitle, 1);
-        
-        
+  
+
         TableViewTest* pLayer = TableViewTest::create();
         this->addChild(pLayer, 2);
         
+
         return true;
     }
     return false;
 }
+
+

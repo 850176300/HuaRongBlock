@@ -11,10 +11,17 @@
 
 #include <iostream>
 #include "cocos2d.h"
-
+#include "SuperGlobal.h"
 USING_NS_CC;
 using namespace std;
+
+
 class UserDefaultManager {
+    
+public:
+    const static int simpleCount = 180;
+    const static int mediumCount = 200;
+    const static int difficultCount = 85;
     
 public:
     
@@ -57,8 +64,12 @@ public:
     
     static bool getFirstTimeModifySql();
     static void setFirstTimeModifySql();
-    
+
     static float getBannerHeight();
+    
+    static int getFinishedCount(TablesTag ktag);
+    static bool addFinishedCount(TablesTag ktag);
+    
 };
 
 

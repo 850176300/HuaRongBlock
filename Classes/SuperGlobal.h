@@ -136,7 +136,11 @@ public:
 #else
 #define FONTNAME "fonts/kangyuan.ttc"
 #endif
-
+enum TablesTag {
+    kSimple = 0,
+    kMedium,
+    kDifficult,
+};
 #define LEFTDIRECTION Vec2(-1,0)
 #define RIGHTDIRECTION Vec2(1,0)
 #define UPDIRECTION Vec2(0,1)
