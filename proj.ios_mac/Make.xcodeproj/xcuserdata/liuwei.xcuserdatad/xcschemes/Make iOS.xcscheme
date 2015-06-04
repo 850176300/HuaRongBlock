@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-               BuildableName = "HuaRongBlock Mac.app"
-               BlueprintName = "HuaRongBlock Mac"
-               ReferencedContainer = "container:HuaRongBlock.xcodeproj">
+               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+               BuildableName = "Make iOS.app"
+               BlueprintName = "Make iOS"
+               ReferencedContainer = "container:Make.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-            BuildableName = "HuaRongBlock Mac.app"
-            BlueprintName = "HuaRongBlock Mac"
-            ReferencedContainer = "container:HuaRongBlock.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "Make iOS.app"
+            BlueprintName = "Make iOS"
+            ReferencedContainer = "container:Make.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -48,13 +48,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-            BuildableName = "HuaRongBlock Mac.app"
-            BlueprintName = "HuaRongBlock Mac"
-            ReferencedContainer = "container:HuaRongBlock.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "Make iOS.app"
+            BlueprintName = "Make iOS"
+            ReferencedContainer = "container:Make.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -66,13 +67,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-            BuildableName = "HuaRongBlock Mac.app"
-            BlueprintName = "HuaRongBlock Mac"
-            ReferencedContainer = "container:HuaRongBlock.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "Make iOS.app"
+            BlueprintName = "Make iOS"
+            ReferencedContainer = "container:Make.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

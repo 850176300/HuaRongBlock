@@ -139,7 +139,7 @@ public:
  *
  * This is a very basic, minimal implementation to bring UITableView-like component into cocos2d world.
  */
-class SWTableView : public ScrollView, public ScrollViewDelegate
+class SWTableView : public cocos2d::extension::ScrollView, public ScrollViewDelegate
 {
 public:
     

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E827B261-349F-4776-81FC-C24695B88A34</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Make</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D4A6A2B984C1637B5C189A23C989DD76FD82FF0B</key>
+		<string>https://github.com/850176300/HuaRongBlock.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>proj.ios_mac/Make.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D4A6A2B984C1637B5C189A23C989DD76FD82FF0B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/850176300/HuaRongBlock.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D4A6A2B984C1637B5C189A23C989DD76FD82FF0B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D4A6A2B984C1637B5C189A23C989DD76FD82FF0B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HuaRongBlock</string>
+		</dict>
+	</array>
+</dict>
+</plist>
