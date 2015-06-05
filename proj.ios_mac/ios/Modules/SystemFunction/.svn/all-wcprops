@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/SystemFunction
+END
+ImageSave.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/SystemFunction/ImageSave.h
+END
+ImageSave.mm
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/SystemFunction/ImageSave.mm
+END
+STSystemFunction.mm
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/SystemFunction/STSystemFunction.mm
+END
+SystemFunctionIOSWrapper.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/SystemFunction/SystemFunctionIOSWrapper.h
+END
+SystemFunctionIOSWrapper.mm
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/SystemFunction/SystemFunctionIOSWrapper.mm
+END

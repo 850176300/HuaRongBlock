@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules
+END
+AdsImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/AdsImpl.h
+END
+STAdsDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/STAdsDelegate.h
+END
+AnalyticX.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/AnalyticX.h
+END
+AlumnAdapter.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/AlumnAdapter.h
+END
+STIABDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/STIABDelegate.h
+END
+STAds.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/STAds.h
+END
+STInAppBilling.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/STInAppBilling.h
+END
+STFacebook.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/STFacebook.h
+END
+STSystemFunction.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/STSystemFunction.h
+END
+AdsImpl.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/make/!svn/ver/27757/trunk/CKIDS033/Classes/Depends/Modules/AdsImpl.cpp
+END

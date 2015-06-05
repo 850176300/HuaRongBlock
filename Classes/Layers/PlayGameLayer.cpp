@@ -42,7 +42,6 @@ bool PlayGameLayer::initWith(LevelDescripe *descripe) {
         _currentDescripe = descripe;
         _currentDescripe->retain();
         log("===========currentdescripe %d ==========", _currentDescripe->getReferenceCount());
-        createHeader();
         TTFConfig config2(FONTNAME,40,GlyphCollection::DYNAMIC,nullptr,true);
         //待添加
         //获取这种类型的总数量
@@ -77,7 +76,7 @@ bool PlayGameLayer::initWith(LevelDescripe *descripe) {
 void PlayGameLayer::onEnter(){
     
     GameLayerBase::onEnter();
-    coinCount->setString(convertIntToString(UserDefaultManager::getDiamond()));
+//    coinCount->setString(convertIntToString(UserDefaultManager::getDiamond()));
     
     if (UserDefaultManager::getisFirstTime() == true) {
         UserDefaultManager::setisFirstTime(false);
@@ -87,22 +86,9 @@ void PlayGameLayer::onEnter(){
 }
 
 void PlayGameLayer::createHeader(){
-    _scoreBoard = ScoreBoard::create();
-    _scoreBoard->setBestStep(_currentDescripe->getBestStep());
-    
-    ControlButton* backButton = CocosHelper::getButton("back_btn.png", "back_btn.png");
-    backButton->addTargetWithActionForControlEvents(this, cccontrol_selector(PlayGameLayer::backButtonClicked), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
-    backButton->setUserData((void*)"back");
-    
-    ControlButton* shopButton = CocosHelper::getButton("shop_btn.png", "shop_btn.png");
-    shopButton->addTargetWithActionForControlEvents(this, cccontrol_selector(PlayGameLayer::backButtonClicked), Control::EventType::TOUCH_UP_INSIDE);
-    shopButton->setUserData((void*)"shop");
-    __Array* itemArr = __Array::createWithCapacity(3);
-    itemArr->addObject(backButton);
-    itemArr->addObject(_scoreBoard);
-    itemArr->addObject(shopButton);
-    HeadNode* header = HeadNode::createWithItems(itemArr);
-    header->showInNode(this);
+//    _scoreBoard = ScoreBoard::create();
+//    _scoreBoard->setBestStep(_currentDescripe->getBestStep());
+
 }
 
 void PlayGameLayer::backButtonClicked(cocos2d::Ref *pSender, Control::EventType type) {
@@ -127,21 +113,21 @@ void PlayGameLayer::createButtonLayer(){
     layer->setPosition(Vec2(STVisibleRect::getPointOfSceneRightUp().x - (STVisibleRect::getGlvisibleSize().width - GridWidth - ButtonSize) / 3.0, movefield->getPositionY() + GridHeight));
     addChild(layer, 2);
     stringstream soundBG;
-    if (SoundPlayer::getInstance()->isMusicOpen() ){
-        soundBG<<"game_sound_on.png";
-    }else {
-        soundBG<<"game_sound_off.png";
-    }
-    ControlButton* soundBtn = CocosHelper::getButton(soundBG.str().c_str(), soundBG.str().c_str());
-    soundBtn->addTargetWithActionForControlEvents(this, cccontrol_selector(PlayGameLayer::soundBtnClick), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
-    soundBtn->setAnchorPoint(Vec2(0.5, 0));
-    soundBtn->setPosition(Vec2(layer->getContentSize().width/2.0, 10));
-    layer->addChild(soundBtn);
+//    if (SoundPlayer::getInstance()->isMusicOpen() ){
+//        soundBG<<"game_sound_on.png";
+//    }else {
+//        soundBG<<"game_sound_off.png";
+//    }
+//    ControlButton* soundBtn = CocosHelper::getButton(soundBG.str().c_str(), soundBG.str().c_str());
+//    soundBtn->addTargetWithActionForControlEvents(this, cccontrol_selector(PlayGameLayer::soundBtnClick), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
+//    soundBtn->setAnchorPoint(Vec2(0.5, 0));
+//    soundBtn->setPosition(Vec2(layer->getContentSize().width/2.0, 10));
+//    layer->addChild(soundBtn);
     
     undo = CocosHelper::getButton("back_up.png", "back_down.png");
     undo->addTargetWithActionForControlEvents(movefield, cccontrol_selector(MoveField::onplayerOperationClicked), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
     undo->setAnchorPoint(Vec2(0.5f, 0));
-    undo->setPosition(Vec2(layer->getContentSize().width/2.0, soundBtn->getPositionY()+soundBtn->getContentSize().height + ButtonDesperate));
+    undo->setPosition(Vec2::ZERO);
     undo->setUserObject(__String::create("undo"));
     layer->addChild(undo, 1);
     if (_currentDescripe->getUndoString().size() < 5) {
@@ -166,17 +152,17 @@ void PlayGameLayer::createButtonLayer(){
     layer->addChild(reset, 1);
     
     
-    ControlButton* coin = CocosHelper::getButton("coin.png", "coin.png");
-    coin->addTargetWithActionForControlEvents(this, cccontrol_selector(PlayGameLayer::coinBtnClick), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
-    coin->setAnchorPoint(Vec2(0.5, 1.0f));
-    coin->setPosition(Vec2(layer->getContentSize().width/2.0, layer->getContentSize().height - 20));
+//    ControlButton* coin = CocosHelper::getButton("coin.png", "coin.png");
+//    coin->addTargetWithActionForControlEvents(this, cccontrol_selector(PlayGameLayer::coinBtnClick), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
+//    coin->setAnchorPoint(Vec2(0.5, 1.0f));
+//    coin->setPosition(Vec2(layer->getContentSize().width/2.0, layer->getContentSize().height - 20));
     
-    TTFConfig config2(FONTNAME,40,GlyphCollection::DYNAMIC,nullptr,true);
-    coinCount = Label::createWithTTF(config2, convertIntToString(UserDefaultManager::getDiamond()));
-    coinCount->setAnchorPoint(Vec2(0.5f, 1.0));
-    coinCount->setPosition(coin->getPosition() + Vec2(0, -coin->getContentSize().height - 15));
-    layer->addChild(coinCount, 1);
-    layer->addChild(coin, 1);
+//    TTFConfig config2(FONTNAME,40,GlyphCollection::DYNAMIC,nullptr,true);
+//    coinCount = Label::createWithTTF(config2, convertIntToString(UserDefaultManager::getDiamond()));
+//    coinCount->setAnchorPoint(Vec2(0.5f, 1.0));
+//    coinCount->setPosition(coin->getPosition() + Vec2(0, -coin->getContentSize().height - 15));
+//    layer->addChild(coinCount, 1);
+//    layer->addChild(coin, 1);
 
 }
 
@@ -191,7 +177,7 @@ void PlayGameLayer::onUndoChanged(bool addOrSub) {
 }
 
 void PlayGameLayer::onAddStep(int stepCount) {
-    _scoreBoard->updateStepCount(stepCount);
+//    _scoreBoard->updateStepCount(stepCount);
 }
 
 void PlayGameLayer::soundBtnClick(cocos2d::Ref *pSender, Control::EventType type) {
@@ -259,29 +245,29 @@ void PlayGameLayer::onFinishedTheGame(){
         }
         
     }
-    
-    int currentStep = _scoreBoard->getstepCounts();
-    log("the currentStep is %d", currentStep);
-    int star = getStarBysteps(currentStep);
-    WellDoneLayer* layer = WellDoneLayer::create(star);
-    layer->setAbstact(this);
-    layer->showInNode(this);
-    if (_currentDescripe->getBestStep() == 0) {
-        _currentDescripe->setBestStep(currentStep);
-    }else{
-        if (currentStep < _currentDescripe->getBestStep() ) {
-            _currentDescripe->setBestStep(currentStep);
-        }
-    }
-    UserDefaultManager::setStarsCount(star - _currentDescripe->getStar() > 0 ? star - _currentDescripe->getStar() : 0);
-    if (_currentDescripe->getStar() == 0) {
-        UserDefaultManager::addQuestionCount();
-        _currentDescripe->setStar(star);
-    }else {
-        if (_currentDescripe->getStar() < star) {
-            _currentDescripe->setStar(star);
-        }
-    }
+#pragma mark 判断游戏成功
+//    int currentStep = _scoreBoard->getstepCounts();
+//    log("the currentStep is %d", currentStep);
+//    int star = getStarBysteps(currentStep);
+//    WellDoneLayer* layer = WellDoneLayer::create(star);
+//    layer->setAbstact(this);
+//    layer->showInNode(this);
+//    if (_currentDescripe->getBestStep() == 0) {
+//        _currentDescripe->setBestStep(currentStep);
+//    }else{
+//        if (currentStep < _currentDescripe->getBestStep() ) {
+//            _currentDescripe->setBestStep(currentStep);
+//        }
+//    }
+//    UserDefaultManager::setStarsCount(star - _currentDescripe->getStar() > 0 ? star - _currentDescripe->getStar() : 0);
+//    if (_currentDescripe->getStar() == 0) {
+//        UserDefaultManager::addQuestionCount();
+//        _currentDescripe->setStar(star);
+//    }else {
+//        if (_currentDescripe->getStar() < star) {
+//            _currentDescripe->setStar(star);
+//        }
+//    }
     
     _currentDescripe->updateToSplite();
 //
@@ -343,7 +329,7 @@ void PlayGameLayer::onConfirmed(ConfirmDialog *target, bool yesOrNo) {
     }
     if (target->getTag() == kTipGame) {
         UserDefaultManager::addDiamond(-1*TipDiamondCount);
-        coinCount->setString(convertIntToString(UserDefaultManager::getDiamond()));
+//        coinCount->setString(convertIntToString(UserDefaultManager::getDiamond()));
         string solution = ProductSolutioin::getInstance()->createSolution(movefield->returncurrentState());
         log("solution is %s", solution.c_str());
         if (solution.find("no solution") == string::npos) {

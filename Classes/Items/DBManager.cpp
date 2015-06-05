@@ -132,6 +132,30 @@ LevelDescripe* DBManager::getQuestionAtIndex(int index) {
     return NULL;
 }
 
+LevelDescripe* DBManager::getQuestionAtlIndex(int lindex) {
+    stringstream content;
+    content<<"select * from "<<TABLE1<<" where \""<<KEY12<<"\" = \""<<index<<"\"";
+    log("the content is %s", content.str().c_str());
+    
+    CppSQLite3Query q = DbConn::getInstance()->db.execQuery(content.str().c_str());
+    while (!q.eof()) {
+        LevelDescripe* level = new LevelDescripe();
+        level->setIndex(atoi(q.getStringField(KEY1)));
+        level->setName(q.getStringField(KEY8));
+        level->setLevelString(q.getStringField(KEY3));
+        level->setTypeName(q.getStringField(KEY2));
+        level->setStar(q.getIntField(KEY9));
+        level->setRedoString(q.getStringField(KEY5));
+        level->setUndoString(q.getStringField(KEY6));
+        level->setCurrentState(q.getStringField(KEY4));
+        level->setLeastStep(q.getIntField(KEY7));
+        level->setBestStep(q.getIntField(KEY10));
+        level->autorelease();
+        return level;
+    }
+    return NULL;
+}
+
 void DBManager::updateLevelItem(LevelDescripe *item) {
     stringstream content;
     content<<"UPDATE "<<TABLE1<<" SET ";

@@ -149,7 +149,7 @@ enum TablesTag {
 #define PAGECOLUMCOUNT 3
 #define GridWidth 502.0
 #define GridHeight 762.0
-#define PerGridWidth 125.0
+#define PerGridWidth 102.0
 #define ButtonSize 75
 #define ButtonDesperate 20
 #define DataWidth 4

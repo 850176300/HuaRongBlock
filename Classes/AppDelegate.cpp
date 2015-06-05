@@ -41,7 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     DBManager::getInstance()->preloadTypes();
     // create a scene. it's an autorelease object
-      SceneManager::getInstance()->gotoloading();
+      SceneManager::getInstance()->gotoPlayGame(DBManager::getInstance()->getQuestionAtlIndex(1));
     if ( UserDefaultManager::getIsRemoved() == false ) {
         //showad
     }

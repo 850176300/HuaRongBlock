@@ -44,9 +44,9 @@ private:
     ControlButton* redo;
     ControlButton* undo;
     LevelDescripe* _currentDescripe;
-    ScoreBoard* _scoreBoard;
+//    ScoreBoard* _scoreBoard;
     MoveField* movefield ;
-    Label* coinCount;
+//    Label* coinCount;
 protected:
     virtual void onEnter();
     virtual void onConfirmed(ConfirmDialog* target, bool yesOrNo);

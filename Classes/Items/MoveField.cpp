@@ -30,17 +30,17 @@ MoveField* MoveField::createwithStirng(string itemString,string redoString, stri
 }
 
 bool MoveField::initWithString(string itemString,string redoString, string undoString) {
-    if (Sprite::initWithFile("game_center_bg.png")) {
+    if (Sprite::initWithFile("game/bg.png")) {
         resetString = itemString;
         canMove = false;
         gameFinished = false;
         currentString = itemString;
         mytempString =  string(itemString.c_str());
         currentMovingDirection = kBoth;
-        HImages = {"g_h.png","h_h.png","m_h.png","z_h.png","zy_h.png"};
-        VImages = {"g_v.png","h_v.png","m_v.png","z_v.png","zy_v.png"};
+        HImages = {"game/jlh.png","game/jlh.png","game/jlh.png","game/jlh.png","game/jlh.png"};
+        VImages = {"game/jlv.png","game/jlv.png","game/jlv.png","game/jlv.png","game/jlv.png"};
         containRect = boundingBox();
-        containRect.origin = Vec2(1, 136);
+        containRect.origin = Vec2(1, 1);
         containRect.size = Size(PerGridWidth*DataWidth, PerGridWidth*DataHeight);
         placeRoles();
         undoRecorder = SplitString(undoString);
@@ -61,9 +61,9 @@ void MoveField::placeRoles(){
         for (int j = 0; j < DataWidth; ++j) {
             MoveItem* item = NULL;
             if (currentString.at(i*DataWidth + j) == 'S') {
-                item = MoveItem::create("s.png", "S");
+                item = MoveItem::create("game/xb.png", "S");
             }else if (currentString.at(i*DataWidth + j) == 'C'){
-                item = MoveItem::create("cc.png", "C");
+                item = MoveItem::create("game/cc.png", "C");
             }else if (currentString.at(i*DataWidth + j) == 'V') {
                 item = MoveItem::create(VImages[vCount++], "V");
             }else if (currentString.at(i*DataWidth + j) == 'H') {
@@ -75,7 +75,7 @@ void MoveField::placeRoles(){
             item->setTouchDelegate(this);
             item->setTouchEnable(true);
             item->setAnchorPoint(Vec2(0, 1.0f));
-            item->setPosition(Vec2(1+PerGridWidth*j, GridHeight - 1 - PerGridWidth*i ));
+            item->setPosition(Vec2(5.0+PerGridWidth*j, GridHeight  - PerGridWidth*i ));
             item->setStartLocation(item->getPosition());
             item->setPositionNow(item->getPosition());
             item->setOldTag(i*DataWidth + j);

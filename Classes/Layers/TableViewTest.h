@@ -14,17 +14,24 @@
 #include "SWTableView.h"
 #include "UserDefaultManager.h"
 #include "cocos-ext.h"
+
 using namespace std;
 USING_NS_CC;
 USING_NS_CC_EXT;
+
+class TableSelectDelegate{
+public:
+    virtual void selectAtIndex(int index) = 0;
+};
 
 class TableViewTest : public LayerColor, public SWTableViewDataSource, public SWTableViewDelegate{
     
 
     
 public:
-    virtual bool init();
-    CREATE_FUNC(TableViewTest);
+    virtual bool init(Size contentSize);
+    
+    static TableViewTest* create(Size contentSize);
 protected:
     virtual Size cellSizeForTable(SWTableView *table);
     
@@ -34,11 +41,15 @@ protected:
     
     virtual void tableCellTouched(SWTableView* table, TableViewCell* cell, Touch* pTouch);
 
+    CC_SYNTHESIZE(TableSelectDelegate*, pDelegate, Delegate);
 private:
     vector<int> tableCounts;
     vector<int> startIndex;
     vector<string> tablecellpaths;
     TablesTag currentSelectTable = kSimple;
+    Size tableCellSize;
+    Vec2 cellPoint;
+    int colum;
 };
 
 

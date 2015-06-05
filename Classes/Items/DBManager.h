@@ -28,6 +28,7 @@
 #define KEY8 "name"
 #define KEY9 "star"
 #define KEY10 "bestStep"
+#define KEY12 "lindex"
 
 #define KEY11 "type"
 #define KEY22 "total"
@@ -74,6 +75,8 @@ public:
     LevelDescripe* getQuestionAtIndex(int index);
 #pragma mark 功能三：更新数据
     void updateLevelItem(LevelDescripe* item);
+#pragma mark 功能三：根据lindex获取题目
+    LevelDescripe* getQuestionAtlIndex(int lindex);
 private:
 //    void writeData(const char* name);
     

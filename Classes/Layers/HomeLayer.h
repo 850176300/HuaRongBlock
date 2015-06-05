@@ -12,10 +12,11 @@
 #include <istream>
 #include "cocos2d.h"
 #include "GameLayerBase.h"
+#include "TableViewTest.h"
 using namespace std;
 USING_NS_CC;
 
-class HomeLayer : public GameLayerBase{
+class HomeLayer : public GameLayerBase, public TableSelectDelegate{
     enum ButtonsTag{
         kLightBtnTag = 11,
         kSettingBtnTag,
@@ -30,6 +31,7 @@ public:
     
 private:
     void onClickedMenuItems(Ref* pRef);
+    virtual void selectAtIndex(int index) ;
 };
 
 #endif /* defined(__HuaRongBlock__HomeLayer__) */

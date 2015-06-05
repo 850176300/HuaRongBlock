@@ -1,0 +1,19 @@
+//
+//  ShowAlertView.h
+//  BBQParty
+//
+//  Created by liuwei on 14-8-27.
+//
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#include "AlertViewDelegate.h"
+#include <iostream>
+using namespace std;
+@interface ShowAlertView: NSObject<UIAlertViewDelegate>{
+    AlertViewDelegate* pDelegate;
+}
++(ShowAlertView*)shareManager;
+-(void)showAlertwithTag:(int)tag title:(string)title message:(string)message cancel:(string)cancel confirm:(string)confirm AndDelegate:(AlertViewDelegate*)delegate;
+@end

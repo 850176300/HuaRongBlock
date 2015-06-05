@@ -9,31 +9,66 @@
 #include "TableViewTest.h"
 #include "CocosHelper.h"
 #include "STVisibleRect.h"
+#include "STSystemFunction.h"
 USING_NS_ST;
 
-bool TableViewTest::init(){
-    if (LayerColor::initWithColor(Color4B(0, 0, 0, 150))) {
-        
+TableViewTest* TableViewTest::create(cocos2d::Size contentSize) {
+    TableViewTest* pRet = new TableViewTest();
+    if (pRet && pRet->init(contentSize)) {
+        pRet->autorelease();
+        return pRet;
+    }else {
+        CC_SAFE_DELETE(pRet);
+        return NULL;
+    }
+}
+
+bool TableViewTest::init(cocos2d::Size contentSize){
+    if (LayerColor::init()) {
+        setContentSize(contentSize);
         startIndex = {1, UserDefaultManager::simpleCount+1, UserDefaultManager::simpleCount+UserDefaultManager::mediumCount+1};
         tableCounts = {UserDefaultManager::simpleCount, UserDefaultManager::mediumCount, UserDefaultManager::difficultCount};
         tablecellpaths = {"modify/simple.png", "modify/medium.png", "modify/difficult.png"};
         
-        cocos2d::extension::ScrollView* pScrollView = cocos2d::extension::ScrollView::create(Size(5*77, 500));
-        pScrollView->ignoreAnchorPointForPosition(false);
-        pScrollView->setAnchorPoint(Vec2(.5f, .5f));
-        pScrollView->setPosition(Vec2(STVisibleRect::getCenterOfScene().x, STVisibleRect::getCenterOfScene().y - 80));
+        STSystemFunction st;
+        float deltaRange = st.isTabletAvailable() == true ? 15:12;
+        bool flag = false;
+        for (colum = 4; colum < 10; ++colum) {
+            float delta = contentSize.width * 1.0 / colum;
+            delta -= 62;
+            if (delta < 0) {
+                continue;
+            }
+            if (fabs(delta - deltaRange) < 8) {
+                flag = true;
+                break;
+            }
+        }
+        
+        if (flag == false) {
+            colum = 10;
+        }
+        float w = contentSize.width * 1.0/ colum;
+        float h = (w - 62)/0.618 + 57;
+        tableCellSize = Size(w, h);
+        cellPoint = Vec2((w - 62) / 2.0 + 62/2.0, (h - 57) / 2.0 + 57 / 2.0);
+        
+        cocos2d::extension::ScrollView* pScrollView = cocos2d::extension::ScrollView::create(contentSize);
+        pScrollView->setPosition(Vec2(0, 0));
         pScrollView->setDirection(cocos2d::extension::ScrollView::Direction::HORIZONTAL);
         addChild(pScrollView, 3);
         
         Layer* _container = Layer::create();
-        _container->setContentSize(Size(5*77, 500));
+        _container->setContentSize(contentSize);
+        
+        
         
         for (int i = 0; i < startIndex.size(); ++i) {
-            SWTableView* pTableview = SWTableView::create(this, Size(5*77, 500));
+            SWTableView* pTableview = SWTableView::create(this, Size(contentSize));
             pTableview->ignoreAnchorPointForPosition(false);
             pTableview->setAnchorPoint(Vec2(0, 1.0));
             pTableview->setDelegate(this);
-            pTableview->setPosition(Vec2(5*85 * i, 500));
+            pTableview->setPosition(Vec2(colum*(tableCellSize.width + 5) * i, contentSize.height));
             pTableview->setDirection(cocos2d::extension::ScrollView::Direction::VERTICAL);
             _container->addChild(pTableview);
             pTableview->setVerticalFillOrder(SWTableView::VerticalFillOrder::TOP_DOWN);
@@ -51,17 +86,20 @@ bool TableViewTest::init(){
 }
 
 Size TableViewTest::cellSizeForTable(SWTableView *table){
-    return Size(77*5, 77);
+    return tableCellSize;
 }
 
 TableViewCell* TableViewTest::tableCellAtIndex(SWTableView *table, ssize_t idx){
     TableViewCell* pCell = new TableViewCell();
-    pCell->setContentSize(Size(77*5, 77));
-    for (int i = 0; i < 5; ++i) {
+    pCell->setContentSize(Size(tableCellSize.width*colum, tableCellSize.height));
+    for (int i = 0; i < colum; ++i) {
+        if ((int)idx*colum + i > tableCounts.at(atoi(table->getName().c_str()) - kSimple)) {
+            break;
+        }
         Sprite* image = Sprite::create(tablecellpaths.at(atoi(table->getName().c_str()) - kSimple));
-        image->setPosition(Vec2(77/2.0 + i * 77, 77/2.0));
+        image->setPosition(Vec2(cellPoint.x + i * tableCellSize.width, cellPoint.y));
         pCell->addChild(image);
-        image->setTag(idx*5 + i);
+        image->setTag((int)idx*colum + i);
     }
     pCell->setIdx(idx);
     pCell->autorelease();
@@ -70,7 +108,7 @@ TableViewCell* TableViewTest::tableCellAtIndex(SWTableView *table, ssize_t idx){
 
 ssize_t TableViewTest::numberOfCellsInTableView(SWTableView *table){
     int count = tableCounts.at(atoi(table->getName().c_str()) - kSimple);
-    return (count - 1) / 5 + 1;
+    return (count - 1) / colum + 1;
 }
 
 void TableViewTest::tableCellTouched(SWTableView *table, cocos2d::extension::TableViewCell *cell, cocos2d::Touch *pTouch){
@@ -81,6 +119,9 @@ void TableViewTest::tableCellTouched(SWTableView *table, cocos2d::extension::Tab
             pItem->runAction(Sequence::create(DelayTime::create(0.1), CallFunc::create([=]{
                 pItem->setColor(Color3B::WHITE);
             }), NULL));
+            if (pDelegate != nullptr) {
+                pDelegate->selectAtIndex(table->getTag() + cell->getChildren().at(i)->getTag());
+            }
             log("the touch Idx is %d", table->getTag() + cell->getChildren().at(i)->getTag());
             break;
             

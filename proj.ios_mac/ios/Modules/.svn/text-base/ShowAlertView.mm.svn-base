@@ -1,0 +1,53 @@
+//
+//  ShowAlertView.cpp
+//  BBQParty
+//
+//  Created by liuwei on 14-8-27.
+//
+//
+
+#import "ShowAlertView.h"
+
+static ShowAlertView *s_instance=nil;
+@implementation ShowAlertView
+
++(ShowAlertView*)shareManager{
+    if(s_instance==nil){
+        s_instance=[[ShowAlertView alloc] init];
+    }
+    return s_instance;
+}
+
+-(void)showAlertwithTag:(int)tag title:(string)title message:(string)message cancel:(string)cancel confirm:(string)confirm AndDelegate:(AlertViewDelegate *)delegate{
+    NSString* theTitle = [NSString stringWithCString:title.c_str() encoding:NSUTF8StringEncoding];
+    NSString* theMessage = [NSString stringWithCString:message.c_str() encoding:NSUTF8StringEncoding];
+    NSString* theCancel = [NSString stringWithCString:cancel.c_str() encoding:NSUTF8StringEncoding];
+    NSString* theConfirm = [NSString stringWithCString:confirm.c_str() encoding:NSUTF8StringEncoding];
+    
+    if ([theTitle length] <= 0) {
+        theTitle = nil;
+    }
+    if ([theMessage length] <= 0) {
+        theMessage = nil;
+    }
+    if ([theCancel length] <= 0) {
+        theCancel = nil;
+    }
+    if ([theConfirm length] <= 0) {
+        theConfirm = nil;
+    }
+    
+    
+    UIAlertView* alertView = [[[UIAlertView alloc] initWithTitle:theTitle message:theMessage delegate:self cancelButtonTitle:theCancel otherButtonTitles:theConfirm, nil] autorelease];
+    [alertView setTag:tag];
+    [alertView show];
+    pDelegate = delegate;
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (pDelegate) {
+        pDelegate->onAlertViewClickatIndex([alertView tag], buttonIndex);
+    }
+}
+@end

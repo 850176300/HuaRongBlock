@@ -29,12 +29,17 @@
 #import "RootViewController.h"
 
 @implementation AppController
-
+@synthesize viewController = viewController;
+@synthesize window = window;
 #pragma mark -
 #pragma mark Application lifecycle
 
 // cocos2d application instance
 static AppDelegate s_sharedApplication;
+
++(AppController*)sharedAppController{
+    return (AppController*)[UIApplication sharedApplication].delegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
@@ -53,20 +58,20 @@ static AppDelegate s_sharedApplication;
                                  numberOfSamples: 0];
 
     // Use RootViewController manage CCEAGLView 
-    _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
-    _viewController.wantsFullScreenLayout = YES;
-    _viewController.view = eaglView;
+    viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.wantsFullScreenLayout = YES;
+    viewController.view = eaglView;
 
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
         // warning: addSubView doesn't work on iOS6
-        [window addSubview: _viewController.view];
+        [window addSubview: viewController.view];
     }
     else
     {
         // use this method on ios6
-        [window setRootViewController:_viewController];
+        [window setRootViewController:viewController];
     }
 
     [window makeKeyAndVisible];

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/Ads
+END
+DeviceHelper.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/Ads/DeviceHelper.h
+END
+STAds.mm
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/Ads/STAds.mm
+END
+AdsIOSWrapper.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/Ads/AdsIOSWrapper.h
+END
+DeviceHelper.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/Ads/DeviceHelper.m
+END
+AdsIOSWrapper.mm
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/make/!svn/ver/27757/trunk/CKIDS033/proj.ios/Modules/Ads/AdsIOSWrapper.mm
+END

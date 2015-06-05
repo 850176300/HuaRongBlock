@@ -10,7 +10,8 @@
 #include "SuperGlobal.h"
 #include "STVisibleRect.h"
 #include "CocosHelper.h"
-#include "TableViewTest.h"
+#include "DBManager.h"
+#include "SceneManager.h"
 USING_NS_ST;
 Scene* HomeLayer::scene(){
     Scene* pScene = Scene::create();
@@ -78,10 +79,18 @@ bool HomeLayer::init(){
         
         float maxHeight = centerTitle->getBoundingBox().getMidY() - vedioBtn->getBoundingBox().getMaxY();
         log("the max height is %.2f", maxHeight);
-        Size frameSize = Director::getInstance()->getOpenGLView()->getFrameSize();
+
         float tableHeight = maxHeight - 100*1.618;
+        float tableWidth = STVisibleRect::getGlvisibleSize().width - 200*0.618;
         
+        log("the tablewidth is %.2f, and the tableheight is %.2f", tableWidth, tableHeight);
+        int w = (int)tableWidth;
+        int h = (int)tableHeight;
         
+        TableViewTest* pLayer = TableViewTest::create(Size(w, h));
+        pLayer->setPosition(Vec2(100*0.618 + STVisibleRect::getOriginalPoint().x, vedioBtn->getBoundingBox().getMaxY() + 100*0.618));
+        addChild(pLayer, 10);
+        pLayer->setDelegate(this);
         return true;
     }
     return false;
@@ -91,4 +100,8 @@ void HomeLayer::onClickedMenuItems(cocos2d::Ref *pRef) {
     
 }
 
+
+void HomeLayer::selectAtIndex(int index) {
+    SceneManager::getInstance()->gotoPlayGame(DBManager::getInstance()->getQuestionAtlIndex(index));
+}
 
